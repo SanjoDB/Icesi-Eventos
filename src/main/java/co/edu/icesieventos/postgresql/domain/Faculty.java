@@ -21,8 +21,7 @@ public class Faculty {
     @Column(name = "phoneNumber")
     private String phoneNumber;
 
-    @ManyToOne
-    @JoinColumn(name = "employeeId")
-    private Employee employee;
+    @Column(name = "deanId")
+    private String dean;
 
 }
