@@ -5,18 +5,18 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "department")
+@Table(name = "departamentos")
 public class Department {
 
     @Id
-    @Column(name = "code")
+    @Column(name = "codigo")
     private Integer code;
 
-    @Column(name = "name")
+    @Column(name = "nombre")
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "countryCode")
+    @JoinColumn(name = "cod_pais")
     private Country country;
 
 }

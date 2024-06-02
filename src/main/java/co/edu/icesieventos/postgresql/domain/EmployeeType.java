@@ -8,11 +8,11 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "employeeType")
+@Table(name = "tipos_empleados")
 public class EmployeeType {
 
     @Id
-    @Column(name = "name")
+    @Column(name = "nombre")
     private String name;
 
 }

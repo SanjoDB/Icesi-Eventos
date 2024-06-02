@@ -5,18 +5,18 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "headquarter")
+@Table(name = "sedes")
 public class Headquarter {
 
     @Id
-    @Column(name = "code")
+    @Column(name = "codigo")
     private Integer code;
 
-    @Column(name = "name")
+    @Column(name = "nombre")
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "cityCode")
+    @JoinColumn(name = "cod_ciudad")
     private City city;
 
 }

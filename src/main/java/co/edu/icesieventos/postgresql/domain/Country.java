@@ -5,14 +5,14 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "country")
+@Table(name = "paises")
 public class Country {
 
     @Id
-    @Column(name = "code")
+    @Column(name = "codigo")
     private Integer code;
 
-    @Column(name = "name")
+    @Column(name = "nombre")
     private String name;
 
 }

@@ -5,20 +5,20 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "area")
+@Table(name = "areas")
 public class Area {
 
     @Id
-    @Column(name = "code")
+    @Column(name = "codigo")
     private Integer code;
 
-    @Column(name = "name")
+    @Column(name = "nombre")
     private String name;
 
-    @Column(name = "facultyCode")
+    @Column(name = "facultades_codigo")
     private Integer facultyCode;
 
-    @Column(name = "coordinatorId")
+    @Column(name = "id_coordinador")
     private String coordinatorId;
 
 }

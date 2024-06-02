@@ -5,23 +5,23 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "faculty")
+@Table(name = "facultades")
 public class Faculty {
 
     @Id
-    @Column(name = "code")
+    @Column(name = "codigo")
     private Integer code;
 
-    @Column(name = "name")
+    @Column(name = "nombre")
     private String name;
 
-    @Column(name = "location")
+    @Column(name = "ubicacion")
     private String location;
 
-    @Column(name = "phoneNumber")
+    @Column(name = "nro_telefono")
     private String phoneNumber;
 
-    @Column(name = "deanId")
+    @Column(name = "id_decano")
     private String dean;
 
 }
