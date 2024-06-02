@@ -6,29 +6,32 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @Document(collection = "events")
 public class Event {
 
     @Id
+    private String id;
+
     private String title;
 
     private String description;
 
     private String[] categories;
 
-    private Date date;
+    private LocalDate date;
 
     private Location location;
 
-    private FacultyDTO[] faculties;
+    private List<FacultyDTO> faculties;
 
-    private ProgramDTO[] programs;
+    private List<ProgramDTO> programs;
 
-    private Attendant[] attendants;
+    private List<Attendant> attendants;
 
-    private Comment[] comments;
+    private List<Comment> comments;
     
 }

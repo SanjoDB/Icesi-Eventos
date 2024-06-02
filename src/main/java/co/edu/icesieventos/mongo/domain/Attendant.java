@@ -1,26 +1,17 @@
 package co.edu.icesieventos.mongo.domain;
 
+import co.edu.icesieventos.postgresql.domain.User;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
-@Document(collection = "attendants")
 public class Attendant {
 
     @Id
-    private Integer id;
+    private String id;
 
-    private String username;
+    private User usuario;
 
-    private String firstName;
-
-    private String lastName;
-
-    private String relationship;
-
-    private String email;
-
-    private City city;
+    private String role;
 
 }
