@@ -1,5 +1,7 @@
 package co.edu.icesieventos.mongo.domain;
 
+import co.edu.icesieventos.postgresql.dto.FacultyDTO;
+import co.edu.icesieventos.postgresql.dto.ProgramDTO;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -21,8 +23,11 @@ public class Event {
 
     private Location location;
 
-    //attendants
-    //faculties
-    //comments
+    private FacultyDTO[] faculties;
 
+    private ProgramDTO[] programs;
+
+    //attendants
+    //comments
+    
 }
