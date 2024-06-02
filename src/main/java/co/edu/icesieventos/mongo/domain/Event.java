@@ -17,7 +17,7 @@ public class Event {
 
     private String description;
 
-    private String categories;
+    private String[] categories;
 
     private Date date;
 
