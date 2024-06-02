@@ -27,7 +27,8 @@ public class Event {
 
     private ProgramDTO[] programs;
 
-    //attendants
-    //comments
+    private Attendant[] attendants;
+
+    private Comment[] comments;
     
 }
