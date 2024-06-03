@@ -1,7 +1,7 @@
 package co.edu.icesieventos.postgresql.controller;
 
-import co.edu.icesieventos.postgresql.dto.FacultyDTO;
-import co.edu.icesieventos.postgresql.service.FacultyService;
+import co.edu.icesieventos.postgresql.domain.City;
+import co.edu.icesieventos.postgresql.repository.CityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,16 +12,16 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("faculties")
-public class FacultyRestController {
+@RequestMapping("cities")
+public class CityRestController {
 
     @Autowired
-    FacultyService service;
+    CityRepository repository;
 
-    @GetMapping(path = "/getFaculty")
-    public ResponseEntity<List<FacultyDTO>> findAll() {
-        List<FacultyDTO> faculties = service.findAll();
-        return new ResponseEntity<>(faculties, HttpStatus.OK);
+    @GetMapping(path = "/getCity")
+    public ResponseEntity<List<City>> findAll() {
+        List<City> cities = repository.findAll();
+        return new ResponseEntity<>(cities, HttpStatus.OK);
     }
 
 }

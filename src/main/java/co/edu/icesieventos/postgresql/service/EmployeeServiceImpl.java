@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Scope("singleton")
 @Service
 public class EmployeeServiceImpl implements EmployeeService{
@@ -17,6 +19,13 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Autowired
     EmployeeMapper mapper;
+
+    public List<EmployeeDTO> findAll() {
+
+        List<EmployeeDTO> lst = mapper.toEmployeeDTO(repository.findAll());
+
+        return lst;
+    }
 
     @Override
     public EmployeeDTO findById(String id) throws Exception {
