@@ -9,6 +9,7 @@ import lombok.Data;
 public class Department {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "codigo")
     private Integer code;
 
@@ -18,5 +19,7 @@ public class Department {
     @ManyToOne
     @JoinColumn(name = "cod_pais")
     private Country country;
+
+
 
 }

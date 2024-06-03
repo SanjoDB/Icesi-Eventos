@@ -9,6 +9,7 @@ import lombok.Data;
 public class Faculty {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "codigo")
     private Integer code;
 

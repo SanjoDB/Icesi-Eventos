@@ -10,8 +10,9 @@ import lombok.Data;
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private String id;
+    private Integer id;
 
     @Column(name = "username")
     private String username;
@@ -22,10 +23,10 @@ public class User {
     @Column(name = "role")
     private String role;
 
-    @Column(name = "firstName")
+    @Column(name = "firstname")
     private String firstName;
 
-    @Column(name = "lastName")
+    @Column(name = "lastname")
     private String lastName;
 
     @Column(name = "relationship")
@@ -35,7 +36,21 @@ public class User {
     private String email;
 
     @ManyToOne
-    @JoinColumn(name = "city")
+    @JoinColumn(name = "city_id")
     private City city;
 
+    public User(String username, String password, String role, String firstName, String lastName, String relationship, String email, City city) {
+        this.username = username;
+        this.password = password;
+        this.role = role;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.relationship = relationship;
+        this.email = email;
+        this.city = city;
+    }
+
+    public User() {
+
+    }
 }
