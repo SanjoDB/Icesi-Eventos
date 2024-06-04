@@ -3,6 +3,7 @@ package co.edu.icesieventos.postgresql.service;
 
 import co.edu.icesieventos.postgresql.domain.City;
 import co.edu.icesieventos.postgresql.domain.User;
+import co.edu.icesieventos.postgresql.dto.LoginDto;
 import co.edu.icesieventos.postgresql.dto.UserDTO;
 import co.edu.icesieventos.postgresql.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,23 @@ public class UserServiceImpl implements UserService {
                 user.getRelationship(),user.getEmail(),city);
         userRepository.save(user1);
         return "El usuario se registro con exito";
+    }
+
+    @Override
+    public String loginUser(LoginDto loginDto) {
+        User user = userRepository.findUserByUsername(loginDto.getUsername());
+
+        if (user != null){
+            String password = loginDto.getPassword();
+            User user1 = userRepository.findUserByUsernameAndPassword(loginDto.getUsername(),loginDto.getPassword());
+            if(user1 != null) {
+                return "Inicio exitoso";
+            }else{
+                return "La contraseña es incorrecta";
+            }
+        }{
+            return "el Usuario no existe";
+        }
     }
 
     @Override
