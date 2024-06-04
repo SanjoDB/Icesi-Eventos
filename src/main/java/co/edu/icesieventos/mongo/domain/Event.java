@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Data
-@Document(collection = "events")
+@Document(collection = "Events")
 public class Event {
 
     @Id

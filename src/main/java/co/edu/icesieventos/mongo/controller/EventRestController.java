@@ -6,13 +6,12 @@ import co.edu.icesieventos.mongo.repository.EventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
+@CrossOrigin("http://localhost:3000")
 @RestController
 @RequestMapping("events")
 public class EventRestController {
@@ -23,7 +22,7 @@ public class EventRestController {
     @Autowired
     EventService service;
 
-    @GetMapping(value = "/getEvent")
+    @GetMapping(path = "/getEvent")
     public ResponseEntity<List<Event>> getAllEvents() {
         List<Event> events = service.findAll();
         return new ResponseEntity<>(events, HttpStatus.OK);
