@@ -23,9 +23,17 @@ public class EventService {
     }
 
     public Optional<Event> findById(String id){
+
         Optional<Event> lst = repository.findById(id);
 
         return lst;
+
+    }
+
+    public Event update(Event event) {
+
+        return repository.save(event);
+
     }
 
 }
