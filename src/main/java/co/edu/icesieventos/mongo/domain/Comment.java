@@ -14,4 +14,8 @@ public class Comment {
 
     private String author;
 
+    public Comment(String text, String author) {
+        this.text = text;
+        this.author = author;
+    }
 }

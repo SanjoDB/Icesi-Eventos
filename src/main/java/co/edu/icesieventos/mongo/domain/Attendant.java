@@ -14,4 +14,8 @@ public class Attendant {
 
     private String role;
 
+    public Attendant(User usuario, String role) {
+        this.usuario = usuario;
+        this.role = role;
+    }
 }

@@ -2,6 +2,7 @@ package co.edu.icesieventos.mongo.repository;
 
 import co.edu.icesieventos.mongo.domain.Event;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -14,6 +15,10 @@ public interface EventRepository extends MongoRepository<Event, String> {
 
     Optional<Event> findById(String id);
 
-    Event update(Event event);
+    @Query(" {'attendants.usuario.username' : ?0}")
+    List<Event> findByAttendantsUsuarioId(String userId);
+
+
+
 
 }

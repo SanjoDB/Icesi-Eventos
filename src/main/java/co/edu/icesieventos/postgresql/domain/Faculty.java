@@ -25,4 +25,11 @@ public class Faculty {
     @Column(name = "id_decano")
     private String dean;
 
+    public Faculty(Integer code) {
+        this.code = code;
+    }
+
+    public Faculty() {
+
+    }
 }

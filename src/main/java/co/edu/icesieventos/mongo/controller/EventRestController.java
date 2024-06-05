@@ -1,8 +1,11 @@
 package co.edu.icesieventos.mongo.controller;
 
 import co.edu.icesieventos.mongo.Service.EventService;
+import co.edu.icesieventos.mongo.domain.Attendant;
 import co.edu.icesieventos.mongo.domain.Event;
 import co.edu.icesieventos.mongo.repository.EventRepository;
+import co.edu.icesieventos.postgresql.domain.Faculty;
+import co.edu.icesieventos.postgresql.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +26,8 @@ public class EventRestController {
     @Autowired
     EventService service;
 
+    @Autowired
+    UserService userService;
     @GetMapping(path = "/getEvent")
     public ResponseEntity<List<Event>> getAllEvents() {
         List<Event> events = service.findAll();
@@ -36,4 +41,28 @@ public class EventRestController {
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
+    @PostMapping(path = "/createEvent")
+    public ResponseEntity createEvent(@RequestBody Event event) {
+        repository.save(event);
+        return new ResponseEntity(event,HttpStatus.CREATED);
+    }
+
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<Event>> getEventsByUserId(@PathVariable("userId") String userId) {
+        List<Event> events = service.findEventsByUserId(userId);
+        return new ResponseEntity<>(events, HttpStatus.OK);
+    }
+
+    @PostMapping(path = "/register/{eventId}")
+    public Event registerAttendant(@PathVariable("eventId") String eventId, @RequestBody Attendant attendant){
+        Optional<Event> eventOptional = service.findById(eventId);
+        if (eventOptional.isPresent()) {
+            Event event = eventOptional.get();
+            event.getAttendants().add(attendant);
+            service.update(event);
+            return event;
+        } else {
+            throw new RuntimeException("Event not found with id " + eventId);
+        }
+    }
 }

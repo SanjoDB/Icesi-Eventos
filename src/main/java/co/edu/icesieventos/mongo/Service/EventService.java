@@ -35,5 +35,11 @@ public class EventService {
         return repository.save(event);
 
     }
+    public List<Event> findEventsByUserId(String userId) {
+        return repository.findByAttendantsUsuarioId(userId);
+    }
+    public Event save(Event entity){
+        return repository.save(entity);
+    }
 
 }
